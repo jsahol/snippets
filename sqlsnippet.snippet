@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Start and End Date Range for WHERE Clause</Title>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ToolTip>Replace with the name for the date field being filtered on.</ToolTip>
+          <Default>"DATE_FIELD"</Default>
+        </Literal>
+        <Object>
+          <ID>DATEFIELD</ID>
+          <Type>System.String</Type>
+          <Default>DATE_FIELD</Default>
+        </Object>
+      </Declarations>
+      <Code Language="SQL_SSDT">
+        <![CDATA[((@startDate IS NULL OR  $DATEFIELD$ >= @startDate) AND (@endDate IS NULL OR  $DATEFIELD$ <= DATEADD(day,1,@endDate)))]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
